@@ -1,9 +1,12 @@
 import { ArrowRight, Download, Github } from "lucide-react";
 import { SiteFooter } from "../components/SiteFooter.jsx";
 import { SiteHeader } from "../components/SiteHeader.jsx";
+import { useDownloadModal } from "../context/DownloadModalContext.jsx";
 import { outboundLinks } from "../links.js";
 
 export function DocsPage() {
+  const { openModal } = useDownloadModal();
+
   return (
     <div className="site-shell docs-shell">
       <SiteHeader />
@@ -25,10 +28,10 @@ export function DocsPage() {
               to playback when the moment clears.
             </p>
             <div className="docs-actions">
-              <a className="button primary" href={outboundLinks.installer}>
+              <button className="button primary" onClick={openModal}>
                 <Download />
                 Download installer
-              </a>
+              </button>
               <a className="button ghost" href={outboundLinks.repository}>
                 <Github />
                 Source repo

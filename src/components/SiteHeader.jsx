@@ -1,8 +1,11 @@
 import { Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useDownloadModal } from "../context/DownloadModalContext.jsx";
 import { outboundLinks } from "../links.js";
 
 export function SiteHeader() {
+  const { openModal } = useDownloadModal();
+
   return (
     <header className="site-header">
       <Link className="brand" to="/" aria-label="Hushline home">
@@ -12,10 +15,10 @@ export function SiteHeader() {
       <nav aria-label="Primary navigation">
         <Link to="/docs">Docs</Link>
         <a href={outboundLinks.repository}>Source</a>
-        <a className="nav-download" href={outboundLinks.installer}>
+        <button className="nav-download" onClick={openModal}>
           <Download />
           Download
-        </a>
+        </button>
       </nav>
     </header>
   );

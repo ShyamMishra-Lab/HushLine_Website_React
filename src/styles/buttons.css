@@ -28,6 +28,13 @@
   flex: 0 0 auto;
 }
 
+.nav-download,
+.button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
 .button {
   justify-content: center;
   gap: 0.62rem;

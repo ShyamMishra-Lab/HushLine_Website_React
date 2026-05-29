@@ -1,9 +1,11 @@
 import { BookOpen, Download, Github, Headphones } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ControllerDemo } from "../../../components/ControllerDemo.jsx";
-import { outboundLinks } from "../../../links.js";
+import { useDownloadModal } from "../../../context/DownloadModalContext.jsx";
 
 export function HeroSection() {
+  const { openModal } = useDownloadModal();
+
   return (
     <section className="hero">
       <img
@@ -21,10 +23,10 @@ export function HeroSection() {
             conversation, reacts to presence, and keeps media control close.
           </p>
           <div className="hero-actions">
-            <a className="button primary" href={outboundLinks.installer}>
+            <button className="button primary" onClick={openModal}>
               <Download />
               Download for Windows
-            </a>
+            </button>
             <Link className="button ghost" to="/docs">
               <BookOpen />
               Read docs
