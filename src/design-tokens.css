@@ -1,0 +1,18 @@
+/* Design tokens extracted from
+   D:\python_projects\Ambient_Venv_ui_experimentation\ambient_settings.json
+   Use these to keep the site visually aligned with the app. */
+:root {
+  --app-accent: #66E2FF;
+  --app-background: #161A25;
+  --app-surface: #1D2332;
+  --app-text: #F4F5FF;
+  --app-muted: #A7B1C3;
+
+  /* State colors from app settings */
+  --state-calibrating: #FFD166;
+  --state-error: #FF5C7A;
+  --state-idle: #95A5A6;
+  --state-listening: #66E2FF;
+  --state-paused: #FF8D7D;
+  --state-speaking: #FF8D7D;
+}
