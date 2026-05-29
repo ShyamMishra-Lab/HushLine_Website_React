@@ -1,0 +1,13 @@
+:root {
+  color-scheme: dark;
+  --bg: #161A25;
+  --panel: rgba(29, 35, 50, 0.88);
+  --panel-strong: #1D2332;
+  --ink: #F4F5FF;
+  --muted: #A7B1C3;
+  --line: rgba(255, 255, 255, 0.14);
+  --cyan: #66E2FF;
+  --coral: #FF8D7D;
+  --lime: #9CE870;
+  --gold: #FFD166;
+}

@@ -1,0 +1,59 @@
+.brand,
+.site-header nav,
+.hero-meta,
+.button,
+.signal-row,
+.track-row,
+.docs-actions,
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  gap: 0.7rem;
+  width: fit-content;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.brand-mark {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 2px solid var(--cyan);
+  background: transparent;
+  flex: 0 0 auto;
+}
+
+.button {
+  justify-content: center;
+  gap: 0.62rem;
+  min-height: 3.25rem;
+  padding: 0 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.button.primary {
+  border-color: transparent;
+  background: var(--ink);
+  color: #091019;
+}
+
+.button.ghost {
+  background: rgba(8, 11, 17, 0.7);
+  backdrop-filter: blur(16px);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  color: var(--cyan);
+  font-weight: 800;
+}

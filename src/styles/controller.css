@@ -1,0 +1,148 @@
+.controller-frame {
+  justify-self: end;
+  width: min(100%, 34rem);
+  padding: clamp(0.8rem, 2vw, 1.25rem);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent 42%),
+    rgba(6, 10, 17, 0.72);
+  box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(24px);
+}
+
+.controller-frame.cyan {
+  --state: var(--cyan);
+}
+
+.controller-frame.coral {
+  --state: var(--coral);
+}
+
+.controller-frame.lime {
+  --state: var(--lime);
+}
+
+.island {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.95rem;
+  min-height: 6rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: #030508;
+}
+
+.album-dot {
+  display: grid;
+  place-items: center;
+  width: 4.1rem;
+  height: 4.1rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.44), transparent 28%),
+    var(--state);
+  color: #071017;
+}
+
+.controller-copy {
+  min-width: 0;
+}
+
+.controller-copy strong,
+.controller-copy span {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.controller-copy strong {
+  font-size: clamp(0.98rem, 2vw, 1.18rem);
+}
+
+.controller-copy span,
+.track-row,
+.signal-row {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.voice-bars {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(8, 0.22rem);
+  gap: 0.2rem;
+  height: 2rem;
+  padding-right: 0.3rem;
+}
+
+.voice-bars i {
+  height: 34%;
+  border-radius: 999px;
+  background: var(--state);
+  animation: speak 0.85s ease-in-out infinite alternate;
+  animation-delay: calc(var(--delay, 0) * 80ms);
+}
+
+.voice-bars i:nth-child(2n) {
+  --delay: 1;
+  height: 70%;
+}
+
+.voice-bars i:nth-child(3n) {
+  --delay: 2;
+  height: 52%;
+}
+
+.voice-bars.playback i,
+.voice-bars.away i {
+  animation-duration: 1.9s;
+  opacity: 0.72;
+}
+
+.voice-bars.paused i {
+  animation-play-state: paused;
+  height: 0.28rem;
+}
+
+.controller-panel {
+  padding: 1rem 0.4rem 0.25rem;
+}
+
+.track-row,
+.signal-row {
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.progress {
+  height: 0.42rem;
+  margin: 0.65rem 0 1rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--state);
+  transition: width 0.7s ease;
+}
+
+.signal-row span {
+  display: flex;
+  align-items: center;
+  gap: 0.44rem;
+  min-height: 2.3rem;
+  padding: 0 0.72rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+}
+
+.signal-row .away {
+  color: var(--gold);
+}

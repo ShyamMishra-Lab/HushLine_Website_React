@@ -1,0 +1,27 @@
+.site-header {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.25rem clamp(1rem, 4vw, 4.5rem);
+}
+
+.site-header nav {
+  gap: clamp(0.7rem, 2vw, 1.6rem);
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.nav-download {
+  gap: 0.45rem;
+  min-height: 2.55rem;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(9, 12, 18, 0.64);
+  color: var(--ink);
+}
