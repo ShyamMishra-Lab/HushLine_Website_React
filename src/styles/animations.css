@@ -1,11 +1,25 @@
 @keyframes speak {
-  from {
-    transform: scaleY(0.56);
-  }
+  from { transform: scaleY(0.56); }
+  to   { transform: scaleY(1.18); }
+}
 
-  to {
-    transform: scaleY(1.18);
-  }
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50%       { opacity: 0.75; transform: scale(1.08); }
+}
+
+@keyframes float-up {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
+}
+
+@keyframes brand-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

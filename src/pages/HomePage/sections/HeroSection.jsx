@@ -14,6 +14,7 @@ export function HeroSection() {
         alt="A headset beside a desktop listening setup."
       />
       <div className="hero-wash" />
+      <div className="hero-glow" aria-hidden="true" />
       <div className="hero-grid">
         <div className="hero-copy">
           <p className="eyebrow">Open-source ambient audio for Windows</p>

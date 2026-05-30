@@ -16,6 +16,31 @@
   font-weight: 650;
 }
 
+.site-header nav a {
+  position: relative;
+  transition: color 0.18s;
+  padding-bottom: 2px;
+}
+
+.site-header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--cyan);
+  transition: width 0.22s;
+}
+
+.site-header nav a:hover {
+  color: var(--ink);
+}
+
+.site-header nav a:hover::after {
+  width: 100%;
+}
+
 .nav-download {
   gap: 0.45rem;
   min-height: 2.55rem;
@@ -24,4 +49,10 @@
   border-radius: 8px;
   background: rgba(9, 12, 18, 0.64);
   color: var(--ink);
+  transition: border-color 0.18s, background 0.18s;
+}
+
+.nav-download:hover {
+  border-color: rgba(102, 226, 255, 0.3);
+  background: rgba(9, 12, 18, 0.88);
 }
