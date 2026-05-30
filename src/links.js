@@ -1,5 +1,5 @@
 export const outboundLinks = {
-  installer: "https://example.com/hushline/Hushline-Setup.exe",
-  repository: "https://github.com/example/hushline",
-  releases: "https://github.com/example/hushline/releases",
+  installer: "https://github.com/ShyamMishra-Lab/Hushline-Ambient_Audio_Assistant/releases/download/v0.1.0/HushLine-Setup-v0.1.0-beta.exe",
+  repository: "https://github.com/ShyamMishra-Lab/Hushline-Ambient_Audio_Assistant",
+  releases: "https://github.com/ShyamMishra-Lab/Hushline-Ambient_Audio_Assistant/releases",
 };
