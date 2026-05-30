@@ -1,53 +1,38 @@
 import { ArrowRight, Download, ExternalLink, X } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { versions } from "../data/versions.js";
 import { useDownloadModal } from "../context/DownloadModalContext.jsx";
 
 export function DownloadModal() {
   const { open, closeModal } = useDownloadModal();
-  const dialogRef = useRef(null);
 
   useEffect(() => {
-    const el = dialogRef.current;
-    if (!el) return;
-    if (open) {
-      el.showModal();
-      document.body.style.overflow = "hidden";
-    } else {
-      el.close();
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
 
   useEffect(() => {
-    const el = dialogRef.current;
-    if (!el) return;
-    const handleCancel = (e) => {
-      e.preventDefault();
-      closeModal();
-    };
-    el.addEventListener("cancel", handleCancel);
-    return () => el.removeEventListener("cancel", handleCancel);
-  }, [closeModal]);
+    if (!open) return;
+    const onKey = (e) => { if (e.key === "Escape") closeModal(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, closeModal]);
 
-  const handleBackdropClick = (e) => {
-    const rect = dialogRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const clickedOutside =
-      e.clientX < rect.left ||
-      e.clientX > rect.right ||
-      e.clientY < rect.top ||
-      e.clientY > rect.bottom;
-    if (clickedOutside) closeModal();
-  };
+  if (!open) return null;
 
   return (
-    <dialog
-      ref={dialogRef}
-      className="download-dialog"
-      onClick={handleBackdropClick}
+    <div
+      className="download-backdrop"
+      onClick={closeModal}
+      role="presentation"
     >
-      <div className="download-dialog-inner">
+      <div
+        className="download-dialog-inner"
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Download Hushline"
+      >
         <div className="download-dialog-header">
           <div>
             <p className="eyebrow">Download Hushline</p>
@@ -120,11 +105,15 @@ export function DownloadModal() {
 
         <p className="dialog-footnote">
           Hushline runs on Windows 10 and Windows 11.{" "}
-          <a href="https://github.com/example/hushline/releases" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/example/hushline/releases"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             All releases on GitHub
           </a>
         </p>
       </div>
-    </dialog>
+    </div>
   );
 }
